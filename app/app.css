@@ -1,0 +1,10 @@
+/* app css stylesheet */
+
+body {
+  margin: 1em;
+}
+
+textarea {
+  width: 100%;
+  height: 20em;
+}

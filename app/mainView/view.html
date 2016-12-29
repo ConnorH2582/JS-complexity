@@ -1,0 +1,7 @@
+<div ng-controller="mainViewCtrl">
+  <form novalidate class="simple-form">
+    <textarea ng-model="jsCode" placeholder="Paste your code here"></textarea>
+    <input type="submit" ng-click="checkJSCode(jsCode)" value="Check" />
+  </form>
+  <h3>Result: <span id="checkResult">{{checkResult}}</span></h3>
+</div>
