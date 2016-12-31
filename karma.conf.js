@@ -8,6 +8,7 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/esprima/index.js',
       'app.js',
       'services/**/*.js',
       'mainView/*.js',
@@ -24,7 +25,7 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine',
-      'karma-junit-reporter'
+      'karma-junit-reporter',
     ],
 
     junitReporter: {

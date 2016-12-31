@@ -12,7 +12,7 @@ describe('myApp.jsComplexity Service', function() {
     }));
   
     it('should evaluate a single if correctly', inject(function(jsComplexity) {
-       expect(jsComplexity.evaluate('function check(a){ if(a){return a;}}')).toEqual(1);
+       expect(jsComplexity.evaluate('function check(a){ if(a){return a;}}')).toEqual(2);
     }));
   
     it('should evaluate an if, else correctly', inject(function(jsComplexity) {
