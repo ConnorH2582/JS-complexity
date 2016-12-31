@@ -5,11 +5,11 @@ angular.module('myApp')
   function complexityCounter(jsCode){
     var syntax = esprima.tokenize(jsCode);
     var complexityCount = 1;
-    var complexityGrowers = ['if' , 'else if' , 'for' , 'while' , 'case','do','||','?'];
+    var complexityGrowers = ['if','else if','for','while','case','||','?'];
     for(var i=0;i<syntax.length; i++){
       if(complexityGrowers.includes(syntax[i].value)){
         complexityCount +=1;
-        }
+      }
     }
     return complexityCount;
   }
