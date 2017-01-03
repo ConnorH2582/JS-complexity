@@ -1,7 +1,21 @@
-<div ng-controller="mainViewCtrl">
-  <form novalidate class="simple-form">
-    <textarea ng-model="jsCode" placeholder="Paste your code here"></textarea>
-    <input type="submit" ng-click="checkJSCode(jsCode)" value="Check" />
-  </form>
-  <h3>Result: <span id="checkResult">{{checkResult}}</span></h3>
+<div class="col-md-12 col-xs-16">
+	<div ng-controller="mainViewCtrl">
+		  <form novalidate class="simple-form" >
+		    <textarea class="col-md-5 col-xs-6" ng-model="jsCode" placeholder="Paste your code here"></textarea>
+		    <input class="btn btn-primary col-md-2 col-xs-2" type="submit" ng-click="checkJSCode(jsCode)" value="Check" id="checkButton"/>
+		  </form>
+		
+		<div class="text-center">
+			<div >
+				<h2 >Breakdown:</h2>
+					<ul data-ng-repeat="i in checkResult.commentary">
+						<li>{{i}}</li>
+					</ul>
+				<div class="col-md-5 col-xs-6">
+					<h3>The Cyclomatic Complexity of this function is <span id="checkResult">{{checkResult.complexity}}</span></h3>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+  
