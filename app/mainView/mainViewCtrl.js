@@ -11,7 +11,8 @@ angular.module('myApp')
 
   $scope.checkJSCode = function (code)
   {
-    $scope.checkResult = jsComplexity.evaluate(code);
+    $scope.complexityItemBreakdown = jsComplexity.evaluate(code);
+    $scope.checkCount = jsComplexity.count(code);
   };
   
   $scope.reset();

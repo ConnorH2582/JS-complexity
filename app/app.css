@@ -2,9 +2,11 @@
 
 html {
 	font-family: sans-Serif;
+	background-color:#B2D5F7;
 }
 body {
 	font-family: sans-Serif;
+	background-color:#B2D5F7;
 }
 
 .navbar h1 {
@@ -23,9 +25,66 @@ textarea {
 #footer {
 	height:2em;
 	color:white;
-	margin-top:17.5em;
 	width:100%;
 }
+
 #checkButton {
-	padding:10.65em 5em;
+	position:relative;
+	padding:16.35em 5em;
+	top:.1em;
+	bottom:5em;
 }
+
+ul li {
+	margin-top:1em;
+}
+.complexityHeadline {
+	color:black;
+}
+#checkCount {
+	font-size:20em;
+	color:black;
+}
+
+#main {
+	margin-top:3em;
+}
+
+#codeInput {
+	height:30em;
+	color:white;
+}
+
+#resultDiv {
+  position: relative;
+  border:.1em solid white;
+  min-height:30em;
+  max-height:30em;
+  overflow-y: auto;
+  background-color:grey;
+  color:white;
+}
+
+#itemizedComplexityCount,
+#complexityCount {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#itemizedComplexityCount {
+  z-index: 10;
+  max-height:30em;
+  overflow-y: auto;
+}
+#countBig {
+	opacity:.5;
+}
+
+#breakdownHeader {
+	font-size:2em;
+}
+
+.lineEval {
+	font-weight:bold;
+}
+

@@ -1,25 +1,49 @@
 'use strict';
 angular.module('myApp')
 .service('jsComplexity', function() {
-  
+    
+  var complexityGrowers = ['if','for','while','case','||','?','catch'];
+    
   function complexityEvaluator(jsCode){
-    var syntax = esprima.tokenize(jsCode);
-    var complexityCount = 1;
-    var complexityGrowers = ['if','else if','for','while','case','||','?'];
-    var complexityCommentary = {1: "1 is the minimum Cyclomatic Complexity for a function"};
-    for(var i=0;i<syntax.length; i++){
-      var j = i;
-      if(complexityGrowers.includes(syntax[i].value)){
-        complexityCount += 1;
-        complexityCommentary[complexityCount] = "Each '" + syntax[i].value + "' adds 1 to the complexity of the function.";
+    //this function serves to split the pasted code by line, evaluate each line separately and identify where in the code (line by line) the complexity is being increased.  Understanding that there is likely a better way to go about this than a nested for loop, I felt this was a cool feature and wanted to implement it beyond simply a complexity counter.
+    var complexityCount = 1
+    var codeByLine = jsCode.split("\n");
+    var lineDict = {};
+    for(var i=0;i<codeByLine.length; i++){
+      var lineItem = {};
+      var syntax = esprima.tokenize(codeByLine[i]);
+      for(var j=0; j<syntax.length;j++){
+        var lineCount=i+1;
+        if(complexityGrowers.includes(syntax[j].value)){
+          complexityCount += 1;
+          lineItem[complexityCount] = {'complexityGrowerValue':syntax[j].value,'complexityGrowerType':syntax[j].type};
+          lineDict[lineCount] = lineItem;
+        }
       }
-    }
-    return {'complexity': complexityCount,'commentary':complexityCommentary,'code':jsCode}
+    } 
+    return lineDict;   
   }
 
+  function complexityCounter(jsCode){
+    //this function simply parses the code body as one and counts the complexity.  Somewhat repetitive, could be DRYer, but aimed to avoid doing too much with one function, and keeping them modular.
+    var complexityCount = 1;
+    var syntax = esprima.tokenize(jsCode);
+
+    for(var i=0;i<syntax.length; i++){
+       if(complexityGrowers.includes(syntax[i].value)){
+          complexityCount += 1;
+      }
+    }
+    return complexityCount;
+  }
 
   this.evaluate = function(jsCode) {
     return complexityEvaluator(jsCode);
+  }
+  
+  this.count = function(jsCode) {
+    
+    return complexityCounter(jsCode);
   }
  
 });

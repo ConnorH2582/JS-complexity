@@ -1,19 +1,28 @@
-<div class="col-md-12 col-xs-16">
-	<div ng-controller="mainViewCtrl">
+<div class="col-md-12 col-xs-16" >
+	<div ng-controller="mainViewCtrl" >
 		  <form novalidate class="simple-form" >
-		    <textarea class="col-md-5 col-xs-6" ng-model="jsCode" placeholder="Paste your code here"></textarea>
-		    <input class="btn btn-primary col-md-2 col-xs-2" type="submit" ng-click="checkJSCode(jsCode)" value="Check" id="checkButton"/>
+		  	
+		    <textarea class="col-md-5 col-xs-4 navbar-inverse" ng-model="jsCode" placeholder="Paste your code here" id="codeInput"></textarea>
+		    <input class="btn btn-success col-md-2 col-xs-4" type="submit" ng-click="checkJSCode(jsCode)" value="Check!" id="checkButton"/>
 		  </form>
 		
-		<div class="text-center">
-			<div >
-				<h2 >Breakdown:</h2>
-					<ul data-ng-repeat="i in checkResult.commentary">
-						<li>{{i}}</li>
-					</ul>
-				<div class="col-md-5 col-xs-6">
-					<h3>The Cyclomatic Complexity of this function is <span id="checkResult">{{checkResult.complexity}}</span></h3>
-				</div>
+		<div class="col-md-5 col-xs-4 text-center" id="resultDiv">
+
+			<div class="complexityBreakdown col-md-12 col-xs-16 text-center" id="itemizedComplexityCount">
+				<h3 class="complexityHeadline" id="breakdownHeader">Cyclomatic Complexity</h3>
+				<ul >
+					<li>The minimum cyclomatic complexity of a function is 1</li>
+					<li data-ng-repeat="(k,v) in complexityItemBreakdown"><span class="lineEval ">Line {{k}}</span>
+						<ul data-ng-repeat="(key,val) in v" class="text-center">
+							<li>The <em><strong>{{val.complexityGrowerValue}} </strong> </em> {{val.complexityGrowerType}} raises the complexity to {{key}}</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="col-md-12 col-xs-16 text-center" id="countBig" >
+				<h1><span class="col-md-12 col-xs-16" id="checkCount">{{ checkCount }}</span></h1>
 			</div>
 		</div>
 	</div>
