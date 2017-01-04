@@ -28,6 +28,14 @@ describe('JS Complexity', function () {
                                   "The if Keyword raises the complexity to 3"].join(''));
     });
   });
+
+  it('should display the complexity rating when "Check!" is clicked', function () {
+      element(by.css('#checkButton')).click().then(function () {
+      var e = element(by.css('#rating'));
+         expect(e.getText()).toBe('(Very Low)');
+
+    });
+  });
 });
 
 //# sourceMappingURL=scenarios-compiled.js.map
