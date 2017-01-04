@@ -9,8 +9,8 @@
 		<div class="col-md-5 col-xs-4 text-center" id="resultDiv">
 
 			<div class="complexityBreakdown col-md-12 col-xs-16 text-center" id="itemizedComplexityCount">
-				<h3 class="complexityHeadline" id="breakdownHeader">Cyclomatic Complexity</h3>
-				<ul >
+				<h3 class="complexityHeadline" id="breakdownHeader">Cyclomatic Complexity</h3><span id="rating">({{rating}})</span>
+				<ul id="breakdown">
 					<li>The minimum cyclomatic complexity of a function is 1</li>
 					<li data-ng-repeat="(k,v) in complexityItemBreakdown"><span class="lineEval ">Line {{k}}</span>
 						<ul data-ng-repeat="(key,val) in v" class="text-center">
@@ -22,9 +22,9 @@
 			</div>
 
 			<div class="col-md-12 col-xs-16 text-center" id="countBig" >
-				<h1><span class="col-md-12 col-xs-16" id="checkCount">{{ checkCount }}</span></h1>
+				<h1><span class="col-md-12 col-xs-16" id="checkCount">{{ count }} </span></h1>
+				
 			</div>
 		</div>
 	</div>
 </div>
-  
