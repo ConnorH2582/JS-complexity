@@ -7,13 +7,13 @@ angular.module('myApp')
 
 
   function lineCreator(jsCode){
-    //hackaround function created using some of the code for the complexityEvaluator function, in order to generate line numbers so that the complexity itemization breakdown is easier to identify.  Probably a much better way to do this via existing plug-ins; came across a few but wanted to give what I had a shot.
+    //hackaround function created using some of the code for the complexityEvaluator function, in order to generate line numbers for the input code to match up with the explanations in the complexityEvaluator function
     var codeByLine = jsCode.split('\n');
     var lineArr = []
     for(var i=0;i<codeByLine.length+1; i++){
-      lineArr.push(i+1);
+      lineArr.push(codeByLine[i]);
     }
-    return lineArr;
+    return lineArr
   
   }
 

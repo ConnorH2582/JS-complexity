@@ -1,25 +1,13 @@
 /* app css stylesheet */
 
-html {
+html,body {
 	font-family: sans-Serif;
-	background-color:#B2D5F7;
-}
-body {
-	font-family: sans-Serif;
-	background-color:#B2D5F7;
+	background-color:#ABCDEF;
 }
 
 .navbar h1 {
 	color:white;
 	font-size: 2em;
-}
-textarea {
-  width: 100%;
-  height: 20em;
-}
-
-#checkResult {
-	color:red;
 }
 
 #footer {
@@ -28,22 +16,13 @@ textarea {
 	width:100%;
 }
 
-#checkButton {
-	position:relative;
-	padding:16.35em 5em;
-	top:.1em;
-	bottom:5em;
+.complexityHeadline {
+	color: #ABCDEF;
 }
 
-ul li {
-	margin-top:1em;
-}
-.complexityHeadline {
-	color:black;
-}
 #checkCount {
-	font-size:17.5em;
-	color:black;
+	font-size:25em;
+	color:#ABCDEF;
 }
 
 #main {
@@ -58,10 +37,9 @@ ul li {
 #resultDiv {
   position: relative;
   border:.1em solid white;
-  min-height:30em;
   max-height:30em;
   overflow-y: auto;
-  background-color:grey;
+  background-color:#3c3c3c;
   color:white;
 }
 
@@ -73,8 +51,6 @@ ul li {
 }
 #itemizedComplexityCount {
   z-index: 10;
-  max-height:30em;
-  overflow-y: auto;
 }
 #countBig {
 	opacity:.5;
@@ -86,14 +62,20 @@ ul li {
 
 .lineEval {
 	font-weight:bold;
+	color:red;
 }
-#lineGutter {
-	margin-top:.25em;
-	width:2em;
+
+#rating {
+	color:#ABCDEF;
+	font-size:2em;
+}
+#breakdown{
+	margin: 1em;
+}
+#breakdown *{
+	margin-top: 1em;
+}
+#linedCode {
 	max-height:30em;
-	overflow-y: auto;
-}
-#lineNums {
-	font-size:.95em;
-	margin-top:-.05em;
+	overflow-y:auto;
 }
