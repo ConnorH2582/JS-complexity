@@ -87,4 +87,13 @@ ul li {
 .lineEval {
 	font-weight:bold;
 }
-
+#lineGutter {
+	margin-top:.25em;
+	width:2em;
+	max-height:30em;
+	overflow-y: auto;
+}
+#lineNums {
+	font-size:.95em;
+	margin-top:-.05em;
+}

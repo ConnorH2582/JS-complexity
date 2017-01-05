@@ -6,12 +6,24 @@ angular.module('myApp')
   //There seems to be some divergent philosophies in the online community as to whether the use of the &&, and ||, operators add to the Cyclomatic Complexity of a given function.  To me, it seems to make sense that using || would provide an entirely different "branch" for the function (i.e. possible outcome or result for the function depending on what's being evaluated), whereas using && would not, so this is why I excluded && but included ||, although simply adding the && operator to the above list of complexity increasing keywords/punctuators would add it as code that grows complexity.   
 
 
+  function lineCreator(jsCode){
+    //hackaround function created using some of the code for the complexityEvaluator function, in order to generate line numbers so that the complexity itemization breakdown is easier to identify.  Probably a much better way to do this via existing plug-ins; came across a few but wanted to give what I had a shot.
+    var codeByLine = jsCode.split('\n');
+    var lineArr = []
+    for(var i=0;i<codeByLine.length+1; i++){
+      lineArr.push(i+1);
+    }
+    return lineArr;
+  
+  }
+
   function complexityEvaluator(jsCode){
     //this function serves to split the pasted code by line, evaluate each line separately and identify where in the code (line by line) the complexity is being increased.  Understanding that there is likely a better way to go about this than a nested for loop, I felt this was a cool feature and wanted to implement it beyond simply a complexity counter.
 
     var complexityCount = 1
     var codeByLine = jsCode.split('\n');
     var lineDict = {};
+    var lineArr = []
     for(var i=0;i<codeByLine.length; i++){
       var lineItem = {};
       var syntax = esprima.tokenize(codeByLine[i]);
@@ -38,6 +50,10 @@ angular.module('myApp')
       }
     }
     return complexityCount;
+  }
+
+  this.createLines = function(jsCode){
+    return lineCreator(jsCode);
   }
 
   this.evaluate = function(jsCode) {

@@ -1,12 +1,16 @@
-<div class="col-md-12 col-xs-16" >
-	<div ng-controller="mainViewCtrl" >
-		  <form novalidate class="simple-form" >
-		  	
-		    <textarea class="col-md-5 col-xs-4 navbar-inverse" ng-model="jsCode" placeholder="Paste your code here" id="codeInput"></textarea>
-		    <input class="btn btn-success col-md-2 col-xs-4" type="submit" ng-click="checkJSCode(jsCode)" value="Check!" id="checkButton"/>
-		  </form>
-		
-		<div class="col-md-5 col-xs-4 text-center" id="resultDiv">
+<div class="col-md-12 col-xs-15">
+	<div ng-controller="mainViewCtrl">
+		<ul class="list-stacked text-center pull-left col-md-1 col-xs-1 col-sm-1" id="lineGutter">
+			<li id="lineNums" class="text-right" data-ng-repeat="i in lineArr">{{i}}</li>
+		</ul>
+	  <form novalidate class="simple-form" >
+		    <textarea class="col-md-4 col-xs-4 navbar-inverse" ng-model="jsCode" placeholder="Paste your code here" id="codeInput">		
+
+			</textarea>
+		    <input class="btn btn-success text-center col-md-2 col-xs-2" type="submit" ng-click="checkJSCode(jsCode)" value="Check!" id="checkButton"/>
+	  </form>
+
+		<div class="col-md-4 col-xs-4 text-center" id="resultDiv">
 
 			<div class="complexityBreakdown col-md-12 col-xs-16 text-center" id="itemizedComplexityCount">
 				<h3 class="complexityHeadline" id="breakdownHeader">Cyclomatic Complexity</h3><span id="rating">({{rating}})</span>
@@ -25,6 +29,7 @@
 				<h1><span class="col-md-12 col-xs-16" id="checkCount">{{ count }} </span></h1>
 				
 			</div>
+		
 		</div>
 	</div>
 </div>

@@ -20,6 +20,8 @@ angular.module('myApp')
 
   $scope.checkJSCode = function (code)
   {
+    $scope.lineArr = jsComplexity.createLines(code);
+
     $scope.complexityItemBreakdown = jsComplexity.evaluate(code);
 
     $scope.count = jsComplexity.count(code);
