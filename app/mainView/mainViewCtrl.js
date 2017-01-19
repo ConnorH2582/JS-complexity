@@ -20,8 +20,15 @@ angular.module('myApp')
 
   $scope.checkJSCode = function (code)
   {
-    $scope.checkResult = jsComplexity.evaluate(code);
-  };
+    $scope.lineArr = jsComplexity.createLines(code);
 
+    $scope.complexityItemBreakdown = jsComplexity.evaluate(code);
+
+    $scope.count = jsComplexity.count(code);
+
+    $scope.rating = jsComplexity.rate(code);
+  };
+  
   $scope.reset();
+
 }]);
